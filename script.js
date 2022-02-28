@@ -3,7 +3,7 @@ function Game(a,x) {
     let t = parseInt(prompt(`This is Your ${j+1} th try`))
     if(t!=x){alert("Wrong Awnser")}
     else{alert("Yup That's the true awnser");break}
-    if(j=a-1){
+    if(j===a-1){
         alert(`The True Awnser is ${x} Too Bad Loser`)}
 }
 }
