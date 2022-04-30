@@ -1,15 +1,28 @@
-function Game(a,x) {
-    for(j=0;j<a;j++){
-    let t = parseInt(prompt(`This is Your ${j+1} th try`))
-    if(t!=x){alert("Wrong Awnser")}
-    else{alert("Yup That's the true awnser");break}
-    if(j===a-1){
-        alert(`The True Awnser is ${x} Too Bad Loser`)}
+const nbr_tentatives = [7,5,3]
+let difficulty = 0;
+function partie(nbr) {
+    console.log(nbr);
+    let a = parseInt(Math.random()*10)
+    alert(`You have ${nbr} tries to guess the number\n good luck xD`)
+    for ( let i = 0;i<nbr;i++) {
+        if (parseInt(prompt(`This is Your ${i} th try : `))==a) {
+            alert ("Congratulations you have won :)");
+            break;
+        }
+        else {
+            alert(`Wrong Response \nYou have another ${nbr-i-1} tries`)
+            if(i===nbr-1) {
+                alert(`You have lost :)))\nThe Searched number is : ${a}`)
+            }
+        }
+    }
+    
 }
-}
-let x=0
 while(true) {
-    let a = parseInt(prompt("Donner le nombre de essaies"))
-     x= parseInt(Math.random()*10)
-    Game(a,x)
+    difficulty = prompt("Please insert the level of difficulty\n ( 1 : easy , 2 :medium , 3 : hard ) ");
+    while(difficulty!=1 && difficulty!=2 && difficulty!=3) {
+        alert("Unexpected Input \n Please try again");
+        difficulty = prompt("Please insert the level of difficulty\n ( 1 : easy , 2 :meduim , 3 : hard ) "); 
+    }
+    partie(nbr_tentatives[parseInt(difficulty)-1]);
 }
